@@ -1,6 +1,9 @@
+require 'virtus'
 require 'new_relic/rest_api/version'
 require 'new_relic/rest_api/config'
 require 'new_relic/rest_api/connection'
+require 'new_relic/rest_api/resource'
+require 'new_relic/rest_api/response_collection'
 require 'new_relic/rest_api/application'
 
 module NewRelic

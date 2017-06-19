@@ -9,4 +9,4 @@ Above you can see the following tasks for future versions:
 ### Miscellaneous
 
 * Pagination for API output
-
+* Cache client requests

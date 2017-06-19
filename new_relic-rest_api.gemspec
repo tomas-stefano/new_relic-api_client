@@ -34,6 +34,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'faraday', '~> 0.12'
   spec.add_dependency 'faraday_middleware', '~> 0.11'
   spec.add_dependency 'faraday-conductivity', '~> 0.3'
+  spec.add_dependency 'activesupport', '>= 4'
+  spec.add_dependency 'virtus', '~> 1.0'
 
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"

@@ -12,7 +12,7 @@ module NewRelic
       # For more information read:
       # https://github.com/lostisland/faraday/wiki/Setting-up-SSL-certificates
       #
-      attr_accessor :ca_file, :ca_path
+      attr_accessor :ssl_options
 
       def host
         @host ||= 'https://api.newrelic.com'
