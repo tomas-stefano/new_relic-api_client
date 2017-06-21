@@ -5,8 +5,8 @@ module NewRelic
     class Resource
       include Virtus.model
 
-      def self.all
-        response = connection.get(path)
+      def self.all(options = {})
+        response = connection.get(path(options))
         body = response.body[resource_name]
 
         ResponseCollection.new(response, body: body) do |record|

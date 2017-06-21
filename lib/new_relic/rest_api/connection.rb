@@ -14,7 +14,7 @@ module NewRelic
           faraday.request :user_agent,
                           app: 'NewRelic::RestApi gem',
                           version: NewRelic::RestApi::VERSION
-          faraday.response :logger, ::Logger.new(STDOUT), bodies: true
+          #faraday.response :logger, ::Logger.new(STDOUT), bodies: true
           faraday.response :json
           faraday.response :raise_error
           faraday.adapter Faraday.default_adapter

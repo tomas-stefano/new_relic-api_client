@@ -1,3 +1,5 @@
+require 'new_relic/rest_api/application_metric_names'
+
 module NewRelic
   module RestApi
     class Application < NewRelic::RestApi::Resource
@@ -10,6 +12,10 @@ module NewRelic
       attribute :application_summary, Hash
       attribute :settings, Hash
       attribute :links, Array
+
+      def metric_names
+        ApplicationMetricNames.all(application_id: application_id)
+      end
     end
   end
 end
