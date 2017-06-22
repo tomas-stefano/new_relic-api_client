@@ -24,9 +24,12 @@ module NewRelic
       def self.path(options = {})
         [
           NewRelic::RestApi.config.api_version,
-          resource_name,
-          options[:id]
+          requested_path(options)
         ].compact.join('/').concat('.json')
+      end
+
+      def self.requested_path(options = {})
+        [resource_name, options[:id]].compact.join('/')
       end
 
       def self.resource_name

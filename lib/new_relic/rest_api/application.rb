@@ -14,7 +14,7 @@ module NewRelic
       attribute :links, Array
 
       def metric_names
-        ApplicationMetricNames.all(application_id: application_id)
+        ApplicationMetricNames.all(application_id: id)
       end
     end
   end
