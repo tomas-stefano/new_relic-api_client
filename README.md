@@ -48,5 +48,5 @@ In order to get the metric names for each application:
 In order to get the metrics data for each application:
 
 ```ruby
-  applications.map(&:metrics)
+  applications.map(&:metrics_data)
 ```

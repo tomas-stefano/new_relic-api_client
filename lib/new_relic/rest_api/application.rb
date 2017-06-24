@@ -1,4 +1,5 @@
 require 'new_relic/rest_api/application_metric_names'
+require 'new_relic/rest_api/application_metric_data'
 
 module NewRelic
   module RestApi
@@ -15,6 +16,10 @@ module NewRelic
 
       def metric_names
         ApplicationMetricNames.all(application_id: id)
+      end
+
+      def metric_data
+        ApplicationMetricData.all(application_id: id)
       end
     end
   end
