@@ -8,4 +8,10 @@ RSpec.describe NewRelic::RestApi::ApplicationMetricData do
       expect(requested_path).to eq("applications/1/metrics/data")
     end
   end
+
+  describe '.resource_name' do
+    it 'returns an array of nested nodes' do
+      expect(described_class.resource_name).to eq(['metric_data', 'metrics'])
+    end
+  end
 end

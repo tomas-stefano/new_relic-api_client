@@ -6,8 +6,8 @@ module NewRelic
       include Virtus.model
 
       def self.all(options = {})
-        response = connection.get(path(options))
-        body = response.body[resource_name]
+        response = connection.get(path(options), options.delete(:params))
+        body = response.body.dig(*resource_name)
 
         ResponseCollection.new(response, body: body) do |record|
           new(record)

@@ -18,8 +18,11 @@ module NewRelic
         ApplicationMetricNames.all(application_id: id)
       end
 
-      def metric_data
-        ApplicationMetricData.all(application_id: id)
+      def metric_data(names: [])
+        ApplicationMetricData.all(
+          application_id: id,
+          params: { names: names }
+        )
       end
     end
   end
