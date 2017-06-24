@@ -88,4 +88,22 @@ RSpec.describe NewRelic::RestApi::Config do
       end
     end
   end
+
+  describe '#ssl_options' do
+    let(:ssl_options) { subject.ssl_options }
+
+    context 'when is not set' do
+      it 'returns empty hash' do
+        expect(ssl_options).to eq({})
+      end
+    end
+
+    context 'when overwritten' do
+      before { subject.ssl_options = { verify: :none } }
+
+      it 'returns overwritten ssl_options' do
+        expect(ssl_options).to eq(verify: :none)
+      end
+    end
+  end
 end

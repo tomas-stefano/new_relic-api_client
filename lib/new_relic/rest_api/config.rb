@@ -33,6 +33,10 @@ module NewRelic
       def retries
         @retries ||= 0
       end
+
+      def ssl_options
+        @ssl_options ||= {}
+      end
     end
   end
 end

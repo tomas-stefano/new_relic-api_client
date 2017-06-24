@@ -12,6 +12,7 @@ desc 'Runs an IRB session'
 task :console do
   NewRelic::RestApi.config do |config|
     config.key = ENV['NEW_RELIC_REST_API_KEY']
+    config.ssl_options = { verify: false }
   end
 
   ARGV.clear

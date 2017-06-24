@@ -26,7 +26,7 @@ module NewRelic
       private
 
       def http_options
-        {
+        options = {
           url: config.host,
           request: {
             timeout: config.timeout,
@@ -34,12 +34,10 @@ module NewRelic
           },
           headers: {
             'X-Api-Key' => config.key
-          },
-          ssl: {
-            # FIXME: add ssl options from config
-            verify: false
           }
         }
+        options[:ssl] = config.ssl_options unless config.ssl_options.empty?
+        options
       end
 
       def config
