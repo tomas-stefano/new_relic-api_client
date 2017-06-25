@@ -9,7 +9,7 @@ https://docs.newrelic.com/docs/apis/rest-api-v2.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'new_relic-rest_api'
+gem 'new_relic-rest_api', require: 'new_relic/rest_api'
 ```
 
 And then execute:
@@ -25,13 +25,15 @@ Or install it yourself as:
 You need to setup your new relic api key:
 
 ```ruby
+require 'new_relic/rest_api'
+
 NewRelic::RestApi.config do |config|
   config.key = '<your-api-key>'
 end
 ```
 There other options you can setup like:
 
-timeout, open_timeout, retries.
+timeout, open_timeout, retries, ssl_options.
 
 Then you can play with the application resource:
 
@@ -48,5 +50,5 @@ In order to get the metric names for each application:
 In order to get the metrics data for each application:
 
 ```ruby
-  applications.map(&:metrics_data)
+  applications.map { |app| app.metric_data(names: ['<some-metric-name-from-above>']) }
 ```
