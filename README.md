@@ -47,7 +47,8 @@ In order to get the metric names for each application:
   applications.map(&:metric_names)
 ```
 
-In order to get the metrics data for each application:
+In order to get the metrics data for each application you need to
+pass some metric names from the previous step:
 
 ```ruby
   applications.map { |app| app.metric_data(names: ['<some-metric-name-from-above>']) }
